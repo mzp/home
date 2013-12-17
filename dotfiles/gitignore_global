@@ -1,0 +1,8 @@
+.rbenv-version
+*.swp
+*~
+.DS_Store
+\#*\#
+.bundle
+Guardfile
+.ruby-version

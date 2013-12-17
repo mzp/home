@@ -1,0 +1,187 @@
+syntax on
+scriptencoding utf-8
+
+" ============================================================
+" Basic
+" ============================================================
+filetype plugin indent on
+set history=1000
+set showcmd
+set showmatch
+set hidden
+set showtabline=2
+set cursorline
+"set cursorcolumn
+set nocompatible
+
+" tab character
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+" encoding
+set fileencoding=utf-8
+set fileencodings=utf-8,euc-jp
+
+" search
+set ignorecase
+set smartcase
+set incsearch
+set wrapscan
+set hlsearch
+
+" auto cd
+au BufEnter * execute ":lcd " . expand("%:p:h")
+
+
+" ------------------------------------------------------------
+" stataus line
+" ------------------------------------------------------------
+set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ (%04l,%04v)[%p%%]
+set laststatus=2
+au InsertEnter * hi StatusLine guifg=DrakBlue guibg=DarkYellow gui=none ctermfg=Black ctermbg=Yellow cterm=none
+au InsertLeave * hi StatusLine guifg=DrakBlue guibg=DarkGray gui=none ctermfg=Black ctermbg=White cterm=none
+
+if has('unix') && !has('gui_running')
+  inoremap <silent> <ESC> <ESC>
+  inoremap <silent> <C-[> <ESC>
+  inoremap <silent> <C-c> <ESC>
+endif
+
+" ------------------------------------------------------------
+" color scheme
+" ------------------------------------------------------------
+augroup highlightTrailSpace
+  autocmd!
+  autocmd ColorScheme * highlight TrailSpace term=underline ctermbg=Red guibg=Red
+"  autocmd VimEnter,WinEnter * match TrailSpace /\s\+$/
+augroup END
+
+colorscheme desert
+
+" ------------------------------------------------------------
+" invisible character
+" ------------------------------------------------------------
+" special character
+set list
+set lcs=tab:.\ ,trail:_
+set showbreak=++++
+set display=uhex
+
+" Strip trailing space before file write
+autocmd BufWritePre * call StripTrailingWhite()
+function! StripTrailingWhite()
+  let l:winview = winsaveview()
+  silent! %s/\s\+$//
+  call winrestview(l:winview)
+endfunction
+
+" --------------------------------------------------------------------------------
+"  keymap
+" --------------------------------------------------------------------------------
+nnoremap <C-j> <C-w>w<C-e><C-w>w
+nnoremap <C-k> <C-w>w<C-y><C-w>w
+let mapleader = ' '
+nnoremap W :w<CR>
+
+" --------------------------------------------------------------------------------
+" line number
+" --------------------------------------------------------------------------------
+set relativenumber
+if version >= 703
+  nnoremap  <silent> ,n :<C-u>ToggleNumber<CR>
+  command! -nargs=0 ToggleNumber call ToggleNumberOption()
+
+  function! ToggleNumberOption()
+    if &number
+      set relativenumber
+    else
+      set number
+    endif
+  endfunction
+endif
+
+
+" ============================================================
+"  plugins
+" ============================================================
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+NeoBundle 'vim-scripts/buftabs'
+NeoBundle 'corntrace/bufexplorer'
+"NeoBundle 'Shougo/vimfiler'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'jdonaldson/vaxe'
+" NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'dag/vim2hs'
+
+" Note: You don't set neobundle setting in .gvimrc!
+" Original repos on github
+" ...
+
+filetype plugin indent on     " Required!
+"
+" Brief help
+" :NeoBundleList          - list configured bundles
+" :NeoBundleInstall(!)    - install(update) bundles
+" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+
+" Installation check.
+NeoBundleCheck
+
+" ------------------------------------------------------------
+"  buftabs
+" ------------------------------------------------------------
+let buftabs_only_basename = 1
+let buftabs_in_statuslin = 1
+
+" ------------------------------------------------------------
+"  bufexplorer
+" ------------------------------------------------------------
+let bufExplorerDetailedHelp = 1
+
+" ------------------------------------------------------------
+"  indent guides
+" ------------------------------------------------------------
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=4
+
+" ------------------------------------------------------------
+"  quickrun
+" ------------------------------------------------------------
+nnoremap <silent> <C-s> :<C-u>QuickRun<CR>
+
+function! OCamlType()
+  let col  = col('.')
+  let line = line('.')
+  let file = expand("%:p:r")
+  echo system("annot -n -type ".line." ".col." ".file.".annot")
+endfunction
+map <leader>. :call OCamlType()<cr>
+
+
+"" unite.vim {{{
+" The prefix key.
+" unite.vim keymap
+" https://github.com/alwei/dotfiles/blob/3760650625663f3b08f24bc75762ec843ca7e112/.vimrc
+nnoremap <silent> ,f :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> ,b :<C-u>Unite<Space>bookmark<CR>
+nnoremap <silent> ,m :<C-u>Unite<Space>file_mru<CR>
+nnoremap <silent> ,r :<C-u>UniteWithBufferDir file<CR>
+nnoremap <silent> ,vr :UniteResume<CR>
+
+" vinarise
+let g:vinarise_enable_auto_detect = 1
+"" }}}
