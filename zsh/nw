@@ -1,0 +1,25 @@
+#!/bin/zsh
+emulate -RL zsh
+
+local CMDNAME split_opts spawn_command
+CMDNAME=`basename $0`
+
+while getopts dhvPp:l:t:b: OPT
+do
+  case $OPT in
+  "d" | "h" | "v" | "P" )
+    split_opts="$split_opts -$OPT";;
+  "p" | "l" | "t" )
+    split_opts="$split_opts -$OPT $OPTARG";;
+  * ) echo "Usage: $CMDNAME [-dhvP]" \
+    "[-p percentage|-l size] [-t target-pane] [command]" 1>&2
+    return 1;;
+  esac
+done
+
+shift `expr $OPTIND - 1`
+
+spawn_command=$@
+[[ -z $spawn_command ]] && spawn_command=$SHELL
+
+tmux split-window `echo -n $split_opts` "cd $PWD ; $spawn_command"

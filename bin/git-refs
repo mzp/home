@@ -1,0 +1,3 @@
+#!/bin/bash
+echo $1
+git log --pretty=oneline --grep="refs #${1}" | cut -f 1 -d  ' ' | xargs git show

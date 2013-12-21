@@ -1,0 +1,2 @@
+#!/bin/sh
+ifconfig | perl -lne 'if(/\d+\.\d+\.\d+\.\d+/){ print $&; }'

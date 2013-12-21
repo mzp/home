@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require 'uri'
+ARGV.each do|name|
+  bytes = name.dup.force_encoding('ASCII-8BIT')
+  decoded = URI.unescape(bytes)
+  real_name = decoded.force_encoding('Shift_JIS').encode('UTF-8')
+  puts "mv '#{name}' '#{real_name}'"
+end
+

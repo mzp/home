@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in $@; do
+  mkdir -p $i
+  (cd $i; touch .gitkeep)
+done

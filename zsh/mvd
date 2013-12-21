@@ -1,0 +1,9 @@
+emulate -RL zsh
+
+mv $argv
+dir=$argv[-1]
+if [[ -d $dir ]]; then
+   cd $dir
+fi
+
+return 1

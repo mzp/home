@@ -1,0 +1,13 @@
+#!/bin/sh
+WORKING_BRANCH=`git branch -l | grep "*" | cut -d " " -f 2`
+
+if [ -z "$(git log master..HEAD  --pretty=oneline | grep '\[from now\]')" ]
+then
+  git remote update || exit 1
+  git rebase origin/master || exit 2
+  git push mzp $WORKING_BRANCH || exit 3
+  hub pull-request
+else
+    echo "Current branch has now commit.\nPlease fixup it by 'git now --fixup'"
+    exit 1
+fi
