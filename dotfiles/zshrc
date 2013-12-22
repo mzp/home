@@ -191,6 +191,8 @@ if [ -f "$HOME/.zshrc_local" ]; then
   . "$HOME/.zshrc_local"
 fi
 
-for i in ~/profiles/*.profile; do
-  source $i
-done
+if [ -d ~/profiles ]; then
+  for i in ~/profiles/*.profile; do
+    source $i
+  done
+fi
