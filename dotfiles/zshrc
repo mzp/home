@@ -136,7 +136,7 @@ esac
 # --------------------------------------------------
 export LANG='ja_JP.UTF-8'
 export EDITOR="vim"
-path=(~/bin ~/Dropbox/home/bin /opt/local/bin /usr/local/bin /usr/bin /bin /sbin /usr/X11R6/bin $path)
+path=(~/home/bin ~/bin ~/Dropbox/home/bin /opt/local/bin /usr/local/bin /usr/bin /bin /sbin /usr/X11R6/bin $path)
 manpath=(/opt/local/man $manpath)
 
 function rename(){
