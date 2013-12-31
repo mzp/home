@@ -20,6 +20,7 @@ up = pull --rebase       # pull rebase
 rbm = rebase master      # masterへのrebaseはよく使うのでalias
 ad = add
 cam = commit -a --amend  # 直前のcommitを修正
+addn = !sh -c 'git diff -w --no-color "$@" | git apply --cached --ignore-whitespace' -
 # branch関連
 br = branch
 ba = branch -a           # originも含めた全てのbranchを表示
