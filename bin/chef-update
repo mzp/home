@@ -1,4 +1,5 @@
 #!/bin/sh
 sudo aptitude update
 cd ~/chef-repo
+git pull
 sudo chef-solo -c solo.rb -j ./${1}.json
