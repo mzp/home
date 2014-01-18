@@ -62,12 +62,4 @@ he = push heroku master
 	excludesfile = ~/.gitignore_global
 [gui]
 	encoding = utf-8
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[redmine]
-	url = https://codefirst.org/redmine/
-	apikey = b989821c14c712278f3f4df8f592d6188543551c
+
