@@ -1,0 +1,5 @@
+#!/bin/sh
+time=$(LC_ALL=C date -u)
+cd ~/vagrant/coreos-vagrant
+vagrant ssh -c "sudo date -s '$time'"
+
