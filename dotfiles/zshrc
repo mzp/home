@@ -37,7 +37,11 @@ zstyle ':completion:*' list-colors 'no=0' 'di=01;33'
 zstyle ':completion:*' hosts \
     proofcafe.org \
     dev.codefirst.org \
-    codefirst.org
+    codefirst.org \
+    sandbox.home.local \
+    vm.home.local \
+    ruby.home.local \
+    ocaml.home.local
 
 # --------------------------------------------------
 # 補完リストを詳しくする
