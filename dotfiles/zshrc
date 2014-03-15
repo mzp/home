@@ -12,6 +12,9 @@ setopt NoListBeep
 setopt extended_glob
 bindkey -e
 
+# TIMEZONE
+export TZ='Asia/Tokyo'
+
 # 履歴
 HISTSIZE=1000000
 SAVEHIST=1000000
