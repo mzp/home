@@ -115,6 +115,7 @@ alias w3m='noglob w3m -B'
 alias reload='source ~/.zshrc; rehash'
 alias pd="popd"
 alias wget="noglob wget"
+alias be="bundle exec"
 
 # typo
 alias eamcs='emacs'
