@@ -1,10 +1,10 @@
-#!/bin/bash
-echo $(pwd)
+#!/bin/sh
+
 PREFIX="from now"
 MESSAGE="[${PREFIX}] `date +\"%Y/%m/%d %T\"`"
 
 get_amend() {
-    if [ -z "`git log --pretty=oneline -1 | cut -d " " -f 2- | grep "^\\[${PREFIX}\\]"`" ]
+    if [ -z `git log --pretty=oneline --no-color -1 | cut -d " " -f 2- | grep "^\[${PREFIX}]"` ]
     then
         return 1
     fi
@@ -36,19 +36,15 @@ then
 elif [ $1 == "--recent" ]
 then
     git add -A
-    if [ -z "`git log --since=1.minute --pretty=oneline -1 | cut -d " " -f 2- | grep "^\[${PREFIX}]"`" ]
+    if [ -z "`git log --since=1.minute`" ]
     then
         git commit -m "${MESSAGE}"
     else
         git commit --amend -m "${MESSAGE}"
     fi
-elif [ $1 == "--reset" ]
-then
-    FIRST_NOW_COMMIT=`git log --pretty=oneline --grep="${PREFIX}" | tail -n 1 | cut -d " " -f 1`
-    git reset ${FIRST_NOW_COMMIT}
 elif [ $1 == "--fixup" ]
 then
-    FIRST_NOW_COMMIT=`git log --pretty=oneline --grep="${PREFIX}" | tail -n 1 | cut -d " " -f 1`
+    FIRST_NOW_COMMIT=`git log master.. --pretty=oneline --no-color --grep="${PREFIX}" | tail -n 1 | cut -d " " -f 1`
     git reset ${FIRST_NOW_COMMIT}
     git add -A
     if [ $# -eq 2 ]
@@ -57,10 +53,6 @@ then
     else
         git commit --amend
     fi
-elif [ $1 == "--diff" ]
-then
-    FIRST_NOW_COMMIT=`git log --pretty=oneline --grep="${PREFIX}" | tail -n 1 | cut -d " " -f 1`
-    git diff ${FIRST_NOW_COMMIT}^
 elif [ $1 != "--rebase" ]
 then
     if [ $1 != "--all" ]
@@ -72,8 +64,8 @@ then
     fi
     printf "${MESSAGE}\n\n%s" "`git diff --cached`" | git commit -F -
 else
-    FIRST_NOW_COMMIT=`git log --pretty=oneline --grep="${PREFIX}" | tail -n 1 | cut -d " " -f 1`
-    INITIAL_COMMIT=`git log --pretty=oneline | tail -n 1 | cut -d " " -f 1`
+    FIRST_NOW_COMMIT=`git log master.. --pretty=oneline --no-color --grep="${PREFIX}" | tail -n 1 | cut -d " " -f 1`
+    INITIAL_COMMIT=`git log master.. --pretty=oneline --no-color | tail -n 1 | cut -d " " -f 1`
 
     if [ ${FIRST_NOW_COMMIT} != ${INITIAL_COMMIT} ]
     then

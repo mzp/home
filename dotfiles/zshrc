@@ -115,7 +115,7 @@ alias w3m='noglob w3m -B'
 alias reload='source ~/.zshrc; rehash'
 alias pd="popd"
 alias wget="noglob wget"
-alias be="bundle exec"
+alias be="git now; bundle exec"
 
 # typo
 alias eamcs='emacs'
@@ -143,6 +143,7 @@ esac
 # 環境変数
 # --------------------------------------------------
 export LANG='ja_JP.UTF-8'
+export LC_ALL='ja_JP.UTF-8'
 export EDITOR="vim"
 path=(~/home/bin ~/bin /opt/local/bin /usr/local/bin /usr/bin /bin /sbin /usr/X11R6/bin $path)
 manpath=(/opt/local/man $manpath)
