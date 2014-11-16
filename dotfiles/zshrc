@@ -12,6 +12,9 @@ setopt NoListBeep
 setopt extended_glob
 bindkey -e
 
+autoload -U select-word-style chpwd_recent_dirs cdr
+select-word-style bash
+
 # TIMEZONE
 export TZ='Asia/Tokyo'
 
@@ -192,6 +195,19 @@ fi
 if [[ $TERM != 'screen-256color' ]]; then
     tmux attach || tmux -2
 fi
+
+# --------------------------------------------------
+# zaw
+# --------------------------------------------------
+source ~/.zaw/zaw.zsh
+
+zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
+zstyle ':filter-select' case-insensitive yes
+
+bindkey '^[c' zaw-cdr
+bindkey '^[r' zaw-history
+bindkey '^[b' zaw-git-branches
+bindkey '^[f' zaw-git-files
 
 # --------------------------------------------------
 # local profile
