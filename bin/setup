@@ -1,5 +1,5 @@
 #!/bin/sh
-for i in ~/Dropbox/home/conf/*; do 
-  echo mv .$(basename $i) $(basename $i).old
-  echo ln -s $i .$(basename $i); 
-done 
+for i in ~/home/dotfiles/*; do
+  echo rm .$(basename $i)
+  echo ln -s $i .$(basename $i);
+done
