@@ -101,23 +101,25 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
-NeoBundle 'vim-scripts/buftabs'
-NeoBundle 'corntrace/bufexplorer'
-"NeoBundle 'Shougo/vimfiler'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'jdonaldson/vaxe'
-" NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'corntrace/bufexplorer'
 NeoBundle 'dag/vim2hs'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'vim-scripts/desert256.vim'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'jdonaldson/vaxe'
 NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 't9md/vim-textobj-function-ruby'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'vim-scripts/buftabs'
+NeoBundle 'vim-scripts/desert256.vim'
+NeoBundle 'wavded/vim-stylus'
 
 au BufNewFile,BufRead *.coffee set filetype=coffee
+autocmd BufNewFile,BufReadPost *.styl set filetype=stylus
+autocmd BufNewFile,BufReadPost *.stylus set filetype=stylus
 
 " Note: You don't set neobundle setting in .gvimrc!
 " Original repos on github

@@ -30,6 +30,9 @@ function history-all { history -E l }
 _Z_CMD=j
 source ~/home/zsh/z.sh
 
+# directory
+cdpath=(~ ~/git)
+
 # 補完
 fpath=(~/home/zsh $fpath)
 
@@ -221,3 +224,5 @@ if [ -d ~/profiles ]; then
     source $i
   done
 fi
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
