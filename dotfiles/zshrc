@@ -226,3 +226,6 @@ if [ -d ~/profiles ]; then
 fi
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+eval "$(pyenv virtualenv-init -)"
+export PATH="$HOME/.pyenv/shims:$PATH"

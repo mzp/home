@@ -105,7 +105,7 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'corntrace/bufexplorer'
 NeoBundle 'dag/vim2hs'
-NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'digitaltoad/vim-pug'
 NeoBundle 'jdonaldson/vaxe'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kchmck/vim-coffee-script'
@@ -117,7 +117,8 @@ NeoBundle 'vim-scripts/buftabs'
 NeoBundle 'vim-scripts/desert256.vim'
 NeoBundle 'wavded/vim-stylus'
 
-au BufNewFile,BufRead *.coffee set filetype=coffee
+autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+autocmd BufNewFile,BufRead *.jade set filetype=pug
 autocmd BufNewFile,BufReadPost *.styl set filetype=stylus
 autocmd BufNewFile,BufReadPost *.stylus set filetype=stylus
 
