@@ -1,6 +1,7 @@
 [user]
 	name = mzp
 	email = mzpppp@gmail.com
+	signingkey = C101E4DE
 
 [color]
 status = auto
@@ -62,4 +63,7 @@ he = push heroku master
 	excludesfile = ~/.gitignore_global
 [gui]
 	encoding = utf-8
-
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
