@@ -43,8 +43,8 @@ au BufEnter * execute ":lcd " . expand("%:p:h")
 " ------------------------------------------------------------
 set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ (%04l,%04v)[%p%%]
 set laststatus=2
-au InsertEnter * hi StatusLine guifg=DrakBlue guibg=DarkYellow gui=none ctermfg=Black ctermbg=Yellow cterm=none
-au InsertLeave * hi StatusLine guifg=DrakBlue guibg=DarkGray gui=none ctermfg=Black ctermbg=White cterm=none
+au InsertEnter * hi StatusLine guifg=DarkBlue guibg=DarkYellow gui=none ctermfg=Black ctermbg=Yellow cterm=none
+au InsertLeave * hi StatusLine guifg=DarkBlue guibg=DarkGray gui=none ctermfg=Black ctermbg=White cterm=none
 
 if has('unix') && !has('gui_running')
   inoremap <silent> <ESC> <ESC>
