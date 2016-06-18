@@ -227,5 +227,7 @@ fi
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+if which rbenv > /dev/null; then
 eval "$(pyenv virtualenv-init -)"
 export PATH="$HOME/.pyenv/shims:$PATH"
+fi
