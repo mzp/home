@@ -200,19 +200,6 @@ if [[ $TERM != 'screen-256color' ]]; then
 fi
 
 # --------------------------------------------------
-# zaw
-# --------------------------------------------------
-source ~/.zaw/zaw.zsh
-
-zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
-zstyle ':filter-select' case-insensitive yes
-
-bindkey '^[c' zaw-cdr
-bindkey '^[r' zaw-history
-bindkey '^[b' zaw-git-branches
-bindkey '^[f' zaw-git-files
-
-# --------------------------------------------------
 # local profile
 # --------------------------------------------------
 if [ -f "$HOME/.zshrc_local" ]; then
