@@ -6,3 +6,4 @@
 .bundle
 Guardfile
 .ruby-version
+.*.swo
