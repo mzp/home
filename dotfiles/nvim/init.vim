@@ -114,10 +114,11 @@ colorscheme desert256
 
 " Denite {{{
 nnoremap <silent> ,ub :<C-u>Denite buffer<CR>
-nnoremap <silent> ,ur :<C-u>Denite file_mru buffer<CR>
-nnoremap <silent> ,uy :<C-u>Denite neoyank<CR>
+nnoremap <silent> ,ur :<C-u>Denite buffer file_mru<CR>
+nnoremap <silent> ,uy :<C-u>Denite neoyank regiser<CR>
 nnoremap <silent> ,uf :<C-u>DeniteProjectDir file_rec<CR>
 nnoremap <silent> ,ug :<C-u>DeniteProjectDir grep<CR>
+nnoremap <silent> ,uu :<C-u>Denite menu<CR>
 
 call denite#custom#map('insert', '<C-n>',
       \ '<denite:move_to_next_line>', 'noremap')
@@ -138,4 +139,19 @@ call denite#custom#var('grep', 'final_opts', [])
 call denite#custom#var('grep', 'separator', [])
 call denite#custom#var('grep', 'default_opts',
       \ ['--nocolor', '--nogroup'])
+
+let s:menus = {}
+let s:menus.denite = { 'description': 'show denite other sources' }
+let s:menus.denite.command_candidates = [
+\ ['register', 'Denite register'],
+\ ['outline', 'Denite outline']
+\]
+
+let s:menus.vim = { 'description': 'use vim configures' }
+let s:menus.vim.command_candidates = [
+\ ['filetype', 'Denite filetype'],
+\ ['reload', 'source ~/.config/nvim/init.vim']
+\]
+
+call denite#custom#var('menu', 'menus', s:menus)
 " }}}
