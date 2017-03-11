@@ -1,0 +1,141 @@
+syntax on
+scriptencoding utf-8
+
+" Basic {{{
+set cmdheight=3
+set cursorline
+set hidden
+set history=1000
+set showcmd
+set showmatch
+set showtabline=2
+set termguicolors
+
+" folding
+set foldmethod=marker
+
+" line number
+set number
+set relativenumber
+
+" tab character
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
+" encoding
+set fileencodings=utf-8,euc-jp
+
+" search
+set hlsearch
+set ignorecase
+set incsearch
+set smartcase
+set wrapscan
+
+" undofile
+set undofile
+set undodir=~/.undo
+
+" auto cd
+au BufEnter * execute ":lcd " . expand("%:p:h")
+
+" }}}
+
+" stataus line {{{
+set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ (%04l,%04v)[%p%%]
+set laststatus=2
+au InsertEnter * hi StatusLine guifg=DarkBlue guibg=DarkYellow gui=none ctermfg=Black ctermbg=Yellow cterm=none
+au InsertLeave * hi StatusLine guifg=DarkBlue guibg=DarkGray gui=none ctermfg=Black ctermbg=White cterm=none
+
+if has('unix') && !has('gui_running')
+  inoremap <silent> <ESC> <ESC>
+  inoremap <silent> <C-[> <ESC>
+  inoremap <silent> <C-c> <ESC>
+endif
+
+" }}}
+
+" invisible character {{{
+" special character
+set list
+set lcs=tab:.\ ,trail:_
+
+let &showbreak = "\u21b3 "
+
+set display=uhex
+
+" Strip trailing space before file write
+autocmd BufWritePre * call StripTrailingWhite()
+function! StripTrailingWhite()
+  let l:winview = winsaveview()
+  silent! %s/\s\+$//
+  call winrestview(l:winview)
+endfunction
+
+" }}}
+
+" Plugin Manager {{{
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+if !isdirectory(s:dein_repo_dir)
+  execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+endif
+
+execute 'set runtimepath^=' . s:dein_repo_dir
+
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+  call dein#add(s:dein_dir)
+  call dein#add('vim-scripts/desert256.vim')
+  call dein#add('vim-scripts/buftabs')
+  call dein#add('vim-utils/vim-ruby-fold')
+  call dein#add('Shougo/denite.nvim')
+  call dein#add('Shougo/neomru.vim')
+  call dein#add('Shougo/neoyank.vim')
+  call dein#end()
+  call dein#save_state()
+endif
+
+if dein#check_install()
+  call dein#install()
+endif
+
+filetype plugin indent on
+syntax enable
+
+" }}}
+
+" Other Plugin settings {{{
+colorscheme desert256
+" }}}
+
+" Denite {{{
+nnoremap <silent> ,ub :<C-u>Denite buffer<CR>
+nnoremap <silent> ,ur :<C-u>Denite file_mru buffer<CR>
+nnoremap <silent> ,uy :<C-u>Denite neoyank<CR>
+nnoremap <silent> ,uf :<C-u>DeniteProjectDir file_rec<CR>
+nnoremap <silent> ,ug :<C-u>DeniteProjectDir grep<CR>
+
+call denite#custom#map('insert', '<C-n>',
+      \ '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-p>',
+      \ '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', '<C-a>',
+      \ '<denite:move_caret_to_head>', 'noremap')
+call denite#custom#map('insert', '<C-e>',
+      \ '<denite:move_caret_to_tail>', 'noremap')
+call denite#custom#map('insert', '<C-k>',
+      \ '<denite:delete_text_after_caret>', 'noremap')
+
+call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#var('grep', 'separator', [])
+call denite#custom#var('grep', 'default_opts',
+      \ ['--nocolor', '--nogroup'])
+" }}}
