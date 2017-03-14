@@ -191,6 +191,20 @@ if [[ $TERM = 'screen-256color' ]]; then
     }
 fi
 
+# zaw
+if [ ! -e ~/.config/zaw ]; then
+  mkdir -p ~/.config
+  git clone git://github.com/zsh-users/zaw.git ~/.config/zaw
+fi
+
+source ~/.config/zaw/zaw.zsh
+
+bindkey '^Xb' zaw-git-branches
+bindkey '^Xh' zaw-history
+bindkey '^Xf' zaw-git-files
+bindkey '^Xp' zaw-process
+bindkey '^Xs' zaw-ssh-hosts
+
 # --------------------------------------------------
 # Startup
 # --------------------------------------------------
