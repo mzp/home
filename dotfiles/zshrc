@@ -199,10 +199,14 @@ fi
 
 source ~/.config/zaw/zaw.zsh
 
+zstyle ':filter-select' hist-find-no-dups yes
+
 bindkey '^Xb' zaw-git-branches
-bindkey '^Xh' zaw-history
+bindkey '^Xd' zaw-cdr
+bindkey '^r' zaw-history
 bindkey '^Xf' zaw-git-files
 bindkey '^Xp' zaw-process
+bindkey '^Xs' zaw-ssh-hosts
 bindkey '^Xs' zaw-ssh-hosts
 
 # --------------------------------------------------
