@@ -97,6 +97,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('Shougo/neoyank.vim')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('nathanaelkane/vim-indent-guides')
   call dein#end()
   call dein#save_state()
 endif
@@ -115,6 +116,11 @@ colorscheme desert256
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline_powerline_fonts = 1
+
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 2
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * hi IndentGuidesOdd  guibg=#303030
 " }}}
 
 " Denite {{{
