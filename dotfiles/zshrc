@@ -223,8 +223,9 @@ if [[ $TERM != 'screen-256color' ]]; then
 fi
 
 # powerline
-if [[ -e /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-  source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+POWERLINE=/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+if [ -e $POWERLINE ]; then
+  source $POWERLINE
 fi
 
 
