@@ -1,5 +1,10 @@
 #!/bin/sh
 for i in ~/home/dotfiles/*; do
   echo rm .$(basename $i)
-  echo ln -s $i .$(basename $i);
+  echo ln -s $i .$(basename $i)
+done
+
+for i in ~/home/config/*; do
+  echo rm -rf .config/$(basename $i)
+  echo ln -s $i .config/$(basename $i)
 done
