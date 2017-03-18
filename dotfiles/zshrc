@@ -222,6 +222,12 @@ if [[ $TERM != 'screen-256color' ]]; then
     tmux attach || tmux -2
 fi
 
+# powerline
+if [[ -e /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+  source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
+
+
 # --------------------------------------------------
 # local profile
 # --------------------------------------------------
