@@ -76,6 +76,11 @@ endfunction
 
 " }}}
 
+" key bindings {{{
+let g:no_ocaml_maps = 1
+let maplocalleader = "\\"
+" }}}
+
 " Plugin Manager {{{
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -99,6 +104,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('let-def/ocp-indent-vim')
+  call dein#add('ocaml/merlin', { 'rtp': 'vim/merlin', 'rev': 'v2.5.3' })
   call dein#end()
   call dein#save_state()
 endif
