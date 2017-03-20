@@ -98,6 +98,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('nathanaelkane/vim-indent-guides')
+  call dein#add('let-def/ocp-indent-vim')
   call dein#end()
   call dein#save_state()
 endif
