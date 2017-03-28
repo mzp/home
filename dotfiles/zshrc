@@ -202,7 +202,7 @@ if [ ! -e ~/.config/antigen.zsh ]; then
   curl -L git.io/antigen > ~/.config/antigen.zsh
 fi
 source ~/.config/antigen.zsh
-
+antigen bundle mzp/zaw-emoji
 
 zstyle ':filter-select' hist-find-no-dups yes
 
@@ -212,7 +212,7 @@ bindkey '^r' zaw-history
 bindkey '^Xf' zaw-git-files
 bindkey '^Xp' zaw-process
 bindkey '^Xs' zaw-ssh-hosts
-bindkey '^Xs' zaw-ssh-hosts
+bindkey '^Xe' zaw-emoji
 
 # --------------------------------------------------
 # Startup
