@@ -196,8 +196,13 @@ if [ ! -e ~/.config/zaw ]; then
   mkdir -p ~/.config
   git clone git://github.com/zsh-users/zaw.git ~/.config/zaw
 fi
-
 source ~/.config/zaw/zaw.zsh
+
+if [ ! -e ~/.config/antigen.zsh ]; then
+  curl -L git.io/antigen > ~/.config/antigen.zsh
+fi
+source ~/.config/antigen.zsh
+
 
 zstyle ':filter-select' hist-find-no-dups yes
 
