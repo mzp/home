@@ -57,6 +57,11 @@ endif
 
 " }}}
 
+" abbrev {{{
+ia esd /* eslint-disable */
+ia fsl # frozen_string_literal: true
+" }}}
+
 " invisible character {{{
 " special character
 set list
