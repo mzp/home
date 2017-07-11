@@ -125,6 +125,11 @@ syntax enable
 
 " }}}
 
+" Add laungage detection {{{
+au BufRead,BufNewFile Fastfile set filetype=ruby
+au BufRead,BufNewFile Podfile set filetype=ruby
+" }}}
+
 " Other Plugin settings {{{
 colorscheme desert256
 let g:airline#extensions#tabline#enabled = 1
