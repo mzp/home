@@ -203,6 +203,7 @@ if [ ! -e ~/.config/antigen.zsh ]; then
 fi
 source ~/.config/antigen.zsh
 antigen bundle mzp/zaw-emoji
+antigen apply
 
 zstyle ':filter-select' hist-find-no-dups yes
 
