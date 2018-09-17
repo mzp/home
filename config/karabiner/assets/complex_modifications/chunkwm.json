@@ -1,0 +1,637 @@
+{
+	"title": "chunkwm key bindings",
+	"rules": [
+		{
+			"description": "focus window",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "left_arrow",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --focus west"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "right_arrow",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --focus east"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "up_arrow",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --focus north"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "down_arrow",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --focus south"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "move window",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "left_arrow",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --warp west"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "right_arrow",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --warp east"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "up_arrow",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --warp north"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "down_arrow",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --warp south"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "resize window",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "left_arrow",
+						"modifiers": {
+							"mandatory": [
+								"control",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --focus east && /usr/local/bin/chunkc tiling::window --use-temporary-ratio 0.02 --adjust-window-edge west"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "right_arrow",
+						"modifiers": {
+							"mandatory": [
+								"control",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --focus west && /usr/local/bin/chunkc tiling::window --use-temporary-ratio 0.02 --adjust-window-edge east"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "up_arrow",
+						"modifiers": {
+							"mandatory": [
+								"control",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --focus south && /usr/local/bin/chunkc tiling::window --use-temporary-ratio 0.02 --adjust-window-edge north"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "down_arrow",
+						"modifiers": {
+							"mandatory": [
+								"control",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --focus north && /usr/local/bin/chunkc tiling::window --use-temporary-ratio 0.02 --adjust-window-edge south"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "window operation",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "spacebar",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --toggle float"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "chunkwm move to desktop",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "1",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --send-to-desktop 1"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "2",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --send-to-desktop 2"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "3",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --send-to-desktop 3"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "4",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --send-to-desktop 4"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "5",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --send-to-desktop 5"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "6",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --send-to-desktop 6"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "7",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --send-to-desktop 7"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "8",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --send-to-desktop 8"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "9",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --send-to-desktop 9"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "0",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --send-to-desktop 10"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "chunkwm focus desktop(requires chunkwm-sa / macOS 10.13+)",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "1",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::desktop --focus 1"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "2",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::desktop --focus 2"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "3",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::desktop --focus 3"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "4",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::desktop --focus 4"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "5",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::desktop --focus 5"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "6",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::desktop --focus 6"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "7",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::desktop --focus 7"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "8",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::desktop --focus 8"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "9",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::desktop --focus 9"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "0",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::desktop --focus 10"
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "chunkwm misc",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "r",
+						"modifiers": {
+							"mandatory": [
+								"shift",
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/brew services restart chunkwm"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "return_or_enter",
+						"modifiers": {
+							"mandatory": [
+								"option"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "open '/Users/malony/Project/dotfiles-macos/openiterm.app'"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "q",
+						"modifiers": {
+							"mandatory": [
+								"option",
+								"shift"
+							]
+						}
+					},
+					"to": [
+						{
+							"shell_command": "/usr/local/bin/chunkc tiling::window --close"
+						}
+					]
+				}
+			]
+		}
+	]
+}
