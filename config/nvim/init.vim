@@ -112,6 +112,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('rust-lang/rust.vim')
   call dein#add('ocaml/merlin', { 'rtp': 'vim/merlin', 'rev': 'v2.5.3' })
   call dein#add('reasonml/vim-reason')
+  call dein#add('leafgarland/typescript-vim')
   call dein#end()
   call dein#save_state()
 endif
