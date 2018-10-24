@@ -112,7 +112,12 @@ if dein#load_state(s:dein_dir)
   call dein#add('rust-lang/rust.vim')
   call dein#add('ocaml/merlin', { 'rtp': 'vim/merlin', 'rev': 'v2.5.3' })
   call dein#add('reasonml/vim-reason')
-  call dein#add('leafgarland/typescript-vim')
+  call dein#add('HerringtonDarkholme/yats.vim')
+  call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
+  " For async completion
+  call dein#add('Shougo/deoplete.nvim')
+  " For Denite features
+  call dein#add('Shougo/denite.nvim')
   call dein#end()
   call dein#save_state()
 endif
@@ -120,6 +125,8 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+
+let g:deoplete#enable_at_startup = 1
 
 filetype plugin indent on
 syntax enable
